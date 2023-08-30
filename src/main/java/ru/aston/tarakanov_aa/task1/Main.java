@@ -11,9 +11,9 @@ public class Main {
 		User user2 = new User(23, "Artem", "Sidorov");
 		User user3 = new User(26, "Oleg", "Morozov");
 		
-		Tour tour1 = new AirplaneTour(new BigDecimal("15000"), "Sarov", Region.Central, user1);
+		Tour tour1 = new AirplaneTour(new BigDecimal("15000"), "Sarov", Region.CENTRAL, user1);
 		Tour tour2 = new AirplaneTour(new BigDecimal("25000"), "Esentuki", Region.Kavkaz, user2);
-		Tour tour3 = new BusTour(new BigDecimal("37000"), "Ekaterenburg", Region.Ural, user3);
+		Tour tour3 = new BusTour(new BigDecimal("37000"), "Ekaterenburg", Region.URAL, user3);
 		
 		List<Tour> tour = new ArrayList<Tour>();
 		tour.add(tour1);

@@ -14,7 +14,7 @@ public class BusTour extends Tour {
 	@Override
 	public BigDecimal getDiscount() {
 		BigDecimal discount = getAvgPrice().multiply(DISCOUNT_BUS);
-		if (getRegion() == Region.Central) {			
+		if (getRegion() == Region.CENTRAL) {			
 			return discount.multiply(BigDecimal.valueOf(0.95));
 		} 	
 		return discount;

@@ -14,7 +14,7 @@ public class AirplaneTour extends Tour {
 	@Override
 	public BigDecimal getDiscount() {
 		BigDecimal discount = getAvgPrice().multiply(DISCOUNT_AIR);
-		if (getRegion() == Region.Ural) {			
+		if (getRegion() == Region.URAL) {			
 			return discount.multiply(BigDecimal.valueOf(0.8));
 		} 	
 		return discount;
