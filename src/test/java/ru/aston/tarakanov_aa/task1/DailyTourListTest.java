@@ -7,6 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ru.aston.tarakanov_aa.task1.Exception.SetPriceException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DailyTourListTest {
@@ -14,7 +16,7 @@ public class DailyTourListTest {
 	private DailyTourList tourList;
 	
 	@BeforeEach
-	public void initDailyTourList() {
+	public void initDailyTourList() throws SetPriceException {
 		User user1 = new User(21, "Ivan", "Petrov");
 		User user2 = new User(23, "Artem", "Sidorov");
 		User user3 = new User(26, "Oleg", "Morozov");
