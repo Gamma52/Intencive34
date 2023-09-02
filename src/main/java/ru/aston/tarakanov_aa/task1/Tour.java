@@ -2,13 +2,19 @@ package ru.aston.tarakanov_aa.task1;
 
 import java.math.BigDecimal;
 
+import ru.aston.tarakanov_aa.task1.Exception.CodeException;
+import ru.aston.tarakanov_aa.task1.Exception.SetPriceException;
+
 public abstract class Tour implements Discount{
 	private BigDecimal avgPrice;
 	private String city;
 	private Region region;
 	private User user;
 	
-	public Tour(BigDecimal avgPrice, String city, Region region, User user) {
+	public Tour(BigDecimal avgPrice, String city, Region region, User user) throws SetPriceException {
+		if (avgPrice.compareTo(new BigDecimal("0")) < 0) {
+			throw new SetPriceException("price must be great 0", CodeException.CREATE_TOUR_EXCEPTION);
+		}
 		this.setAvgPrice(avgPrice);
 		this.setCity(city);
 		this.setRegion(region);
