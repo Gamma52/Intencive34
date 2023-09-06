@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import ru.aston.tarakanov_aa.task1.Exception.SetPriceException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DailyTourListTest {
 
@@ -44,4 +45,12 @@ public class DailyTourListTest {
 		assertEquals(tourList.getSortedList().get(1).getUser().getSourName(), "Petrov");
 		assertEquals(tourList.getSortedList().get(2).getUser().getSourName(), "Sidorov");
 	}
+	
+	@Test
+    void setPriceExceptionTest() {
+        assertThrows(SetPriceException.class, () -> {
+            User ut = new User(21, "Ivan", "Petrov");
+            BusTour busTour = new BusTour(new BigDecimal("-15"), "Ekaterenburg", Region.URAL, ut);
+        });
+    }
 }
