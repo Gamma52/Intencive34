@@ -1,35 +1,42 @@
 package ru.aston.tarakanov_aa.task4;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.ResultSet;
+import java.util.List;
+
+import ru.aston.tarakanov_aa.task4.Connection.ConnectorToH2Base;
+import ru.aston.tarakanov_aa.task4.Dao.*;
+import ru.aston.tarakanov_aa.task4.Entity.Order;
+import ru.aston.tarakanov_aa.task4.Entity.User;
+import ru.aston.tarakanov_aa.task4.Dto.UsersWhithOrders;
+
 
 
 public class Main {
 
 	public static void main(String[] args) {
-		String url = "jdbc:h2:mem:testdb";
-        String user = "sa";
-        String password = "";
-
         
         try {
-        	Connection connection = DriverManager.getConnection(url, user, password);
+        	Connection connection = ConnectorToH2Base.getConnection();
 			Statement stmp = connection.createStatement();
-//			stmp.execute("CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255))");
-//			stmp.execute("INSERT INTO TEST VALUES(1, 'Hello')");
-//			stmp.execute("INSERT INTO TEST VALUES(2, 'World')");
-			stmp.execute("RUNSCRIPT FROM 'classpath:ru/aston/tarakanov_aa/task4/data1.sql'");
-			ResultSet rs = stmp.executeQuery("SELECT * FROM TEST");
+			stmp.execute("RUNSCRIPT FROM 'classpath:ru/aston/tarakanov_aa/task4/SQL/orders.sql'");
+			stmp.execute("RUNSCRIPT FROM 'classpath:ru/aston/tarakanov_aa/task4/SQL/users.sql'");
+
 			
-			while(rs.next()) {
-				System.out.println(rs.getString("id"));
-			}
-			} catch (SQLException e) {			
-				e.printStackTrace();
-			}
+			UserDao userDao = new UserDao();			
+			UsersWhithOrders uo = userDao.getUsersWhithOrders();
+			List<User> userList = uo.getUsersList();
+			List<Order> orderList = uo.getOrdersList();
+			for(int i=0; i < userList.size(); i++) {
+				System.out.println(userList.get(i).getName() + " have order: " + 
+													orderList.get(i).getProduct());
+			}	
+			connection.close();
+			stmp.close();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
         
         
 
