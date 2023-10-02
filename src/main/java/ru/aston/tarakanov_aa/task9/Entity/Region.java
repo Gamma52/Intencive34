@@ -1,5 +1,6 @@
 package ru.aston.tarakanov_aa.task9.Entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -30,10 +31,7 @@ public class Region {
     private long id;
 	
 	@Column(name = "name")
-	private int name;
-	
-	@Column(name = "koef")
-	private int koef;
+	private String name;
 	
 	@Column(name = "size")
 	private int size;
@@ -42,5 +40,10 @@ public class Region {
     @JoinTable(name="courier_region",
    		joinColumns=  @JoinColumn(name="region_id", referencedColumnName="id"),
    		inverseJoinColumns= @JoinColumn(name="courier_id", referencedColumnName="id"))
-    private Set<Courier> couriers;
+    private Set<Courier> couriers = new HashSet<Courier>();
+    
+    public Region(String name, int size) {
+    	this.name = name;
+    	this.size = size;
+    }
 }

@@ -1,9 +1,10 @@
 package ru.aston.tarakanov_aa.task9.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,14 +37,13 @@ public class Order {
     @Column(name = "cost", nullable = false)
 	private int cost;
     
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
     
-    public Order(String product, int cost, CourierType courierType) {
+    public Order(String product, int cost) {
     	this.product = product;
-    	this.cost = cost;    
-    	//this.user = user;
+    	this.cost = cost;      	
     }
     
 }

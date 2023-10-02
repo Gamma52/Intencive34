@@ -9,12 +9,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -35,8 +33,7 @@ public class User {
     @Column(name = "sour_name", nullable = false)
     private String sour_name;
     
-    @OneToMany(cascade = CascadeType.ALL) // or mappedBy
-    @JoinColumn(name = "order_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")   
     private Set<Order> orders = new HashSet<Order>();
     
     public User(String name, String sour_name) {

@@ -1,5 +1,6 @@
 package ru.aston.tarakanov_aa.task9.Entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -43,5 +44,10 @@ public class Courier {
     @JoinTable(name="courier_region",
    		joinColumns=  @JoinColumn(name="courier_id", referencedColumnName="id"),
    		inverseJoinColumns= @JoinColumn(name="region_id", referencedColumnName="id"))
-    private Set<Region> regions;
+    private Set<Region> regions = new HashSet<Region>();
+    
+    public Courier(String name, CourierType courierType) {
+    	this.name = name;
+    	this.courierType = courierType;
+    }
 }
