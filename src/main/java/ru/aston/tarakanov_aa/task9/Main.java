@@ -1,6 +1,5 @@
 package ru.aston.tarakanov_aa.task9;
-import ru.aston.tarakanov_aa.task9.Entity.Order;
-import ru.aston.tarakanov_aa.task9.Entity.User;
+import ru.aston.tarakanov_aa.task9.Entity.*;
 import ru.aston.tarakanov_aa.task9.Enum.*;
 
 import java.util.List;
@@ -19,6 +18,9 @@ public class Main {
 
 	    // map ENTITY !!
 	    configuration.addAnnotatedClass(User.class);
+	    configuration.addAnnotatedClass(Order.class);
+	    configuration.addAnnotatedClass(Courier.class);
+	    configuration.addAnnotatedClass(Region.class);
 
 	    // Get Session
 	    try (SessionFactory sessionFactory = configuration.buildSessionFactory();

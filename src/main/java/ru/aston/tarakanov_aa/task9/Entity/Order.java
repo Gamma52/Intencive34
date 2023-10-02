@@ -36,18 +36,13 @@ public class Order {
     @Column(name = "cost", nullable = false)
 	private int cost;
     
-    @Enumerated(EnumType.STRING)
-    @Column(name = "courier_type", nullable = false)
-	private CourierType courierType;
-    
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "user_id")
 //    private User user;
     
     public Order(String product, int cost, CourierType courierType) {
     	this.product = product;
-    	this.cost = cost;
-    	this.courierType = courierType;
+    	this.cost = cost;    
     	//this.user = user;
     }
     

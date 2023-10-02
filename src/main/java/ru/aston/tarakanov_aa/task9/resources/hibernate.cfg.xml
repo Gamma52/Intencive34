@@ -17,7 +17,5 @@
         <property name="show_sql">true</property> <!-- Show SQL in console -->
         <property name="format_sql">true</property> <!-- Show SQL formatted -->
 
-        <mapping class="ru.aston.tarakanov_aa.task9.Entity.User"/> 
-        <mapping class="ru.aston.tarakanov_aa.task9.Entity.Order"/> 
     </session-factory>
 </hibernate-configuration>
