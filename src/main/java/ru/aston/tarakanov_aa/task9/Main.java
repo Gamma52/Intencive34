@@ -1,15 +1,13 @@
 package ru.aston.tarakanov_aa.task9;
 import ru.aston.tarakanov_aa.task9.Entity.*;
+import ru.aston.tarakanov_aa.task9.SingleTable.*;
 import ru.aston.tarakanov_aa.task9.Enum.*;
 
-import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.NativeQuery;
-import org.hibernate.query.SelectionQuery;
 
 public class Main {
 
@@ -23,6 +21,11 @@ public class Main {
 	    configuration.addAnnotatedClass(Courier.class);
 	    configuration.addAnnotatedClass(Region.class);
 	    configuration.addAnnotatedClass(UserContacts.class);
+	    
+	    // Inheritance
+	    configuration.addAnnotatedClass(Car.class);
+	    configuration.addAnnotatedClass(SportCar.class);
+	    configuration.addAnnotatedClass(ToyCar.class);
 	    
 	    // Get Session
 	    try (SessionFactory sessionFactory = configuration.buildSessionFactory();

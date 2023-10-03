@@ -16,7 +16,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.aston.tarakanov_aa.task9.Enum.CourierType;
 
 @Entity
 @Setter
