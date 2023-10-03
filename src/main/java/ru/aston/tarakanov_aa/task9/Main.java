@@ -76,28 +76,8 @@ public class Main {
 	            UserContacts userContacts2 = new UserContacts("st. Red", user2);
 	            
 	            session.persist(userContacts1);
-	            session.persist(userContacts2);
-	            
-	            //session.saveOrUpdate(new User(20, "Ivan", "Kovalev"));
-
-	            // native query example
-//	            SelectionQuery<Order> sqlQuery = session.createSelectionQuery("from Order", Order.class);
-//	            List<Order> list = sqlQuery.list();
-//	            for (Order o : list) {
-//	                System.out.println(o.getUser());
-//	            	//session.save( new Order(o.getSour_name(), 10, CourierType.AUTO, o));	            	
-//	            }
-
-	            // Get user
-	            //System.out.println((User) session.get(User.class, 1));
-
-	            // HQL example
-//	            int id = 1;
-//	            Query query = session.createQuery("from User where id = :id");
-//	            query.setParameter("id", id);
-//	            User u = (User) query.uniqueResult();
-//	            System.out.println(u);
-
+	            session.persist(userContacts2);         
+	        
 	            // commit
 	            session.getTransaction().commit();
 
