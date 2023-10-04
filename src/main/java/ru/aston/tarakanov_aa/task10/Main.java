@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ru.aston.tarakanov_aa.task10.XmlBeans.Helicopter;
+import ru.aston.tarakanov_aa.task10.AnnotationDefinitionBeans.Box;
 import ru.aston.tarakanov_aa.task10.ConfigDefenitionBeans.Player;
 import ru.aston.tarakanov_aa.task10.ConfigDefenitionBeans.RockAlbum;
 import ru.aston.tarakanov_aa.task10.XmlBeans.AirPlane;
@@ -21,12 +22,20 @@ public class Main {
 //		System.out.println(copter.getModel());
 //		System.out.println(plane.getModel());
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
-				AppConfig.class);
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+//				AppConfig.class);
+//		
+//
+//		RockAlbum rc = context.getBean(RockAlbum.class);
+//		System.out.println(rc.getSinger());
+//		context.close();
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+              "ru/aston/tarakanov_aa/task10/resources/annotationDefinitionContext.xml");
 		
 
-		RockAlbum rc = context.getBean(RockAlbum.class);
-		System.out.println(rc.getSinger());
+		Box box = context.getBean(Box.class);
+		System.out.println(box.getCar().getModel());
 		context.close();
 	}
 

@@ -2,10 +2,10 @@ package ru.aston.tarakanov_aa.task10.AnnotationDefinitionBeans;
 
 import org.springframework.stereotype.Component;
 
-@Component("sport")
-public class SportCar implements Car{
-
-	private String model = "Ferrari";
+@Component("robot")
+public class RobotCar implements Car{
+	
+	private String model = "Tesla";
 	
 	@Override
 	public String getModel() {		
