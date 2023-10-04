@@ -7,19 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-    <context:property-placeholder location="classpath:ru/aston/tarakanov_aa/task10/resources/Application.properties"/>
-
-    <bean id="AirPlane"
-    	scope="singleton"
-    	class="ru.aston.tarakanov_aa.task10.XmlBeans.AirPlane"
-    	init-method	="doInit"
-    	destroy-method="doDestroy">
-    </bean>
-    
-    <bean id="Helicopter"
-    	scope="prototype"
-    	class="ru.aston.tarakanov_aa.task10.XmlBeans.Helicopter"
-    	init-method	="doInit"
-    	destroy-method="doDestroy">        
-    </bean>    
+    <context:component-scan base-package="ru.aston.tarakanov_aa.task10.AnnotationDefinitionBeans" />
+   
 </beans>
