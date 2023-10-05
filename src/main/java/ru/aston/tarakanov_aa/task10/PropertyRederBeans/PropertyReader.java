@@ -2,7 +2,9 @@ package ru.aston.tarakanov_aa.task10.PropertyRederBeans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PropertyReader {
 	
 	@Autowired

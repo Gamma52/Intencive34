@@ -14,13 +14,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 //		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-//                "ru/aston/tarakanov_aa/task10/resources/applicationContext.xml"
+//                "ru/aston/tarakanov_aa/task10/resources/XmlContext.xml"
 //        );		
 //		
 //		AirPlane plane = context.getBean(AirPlane.class); // singleton
 //		Helicopter copter = context.getBean(Helicopter.class); // prototype
 //		System.out.println(copter.getModel());
 //		System.out.println(plane.getModel());
+//		
+//		context.close();
 		
 //		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
 //				AppConfig.class);
@@ -30,13 +32,13 @@ public class Main {
 //		System.out.println(rc.getSinger());
 //		context.close();
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-              "ru/aston/tarakanov_aa/task10/resources/annotationDefinitionContext.xml");
-		
-
-		Box box = context.getBean(Box.class);
-		System.out.println(box.getCar().getModel());
-		context.close();
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//              "ru/aston/tarakanov_aa/task10/resources/annotationDefinitionContext.xml");
+//		
+//
+//		Box box = context.getBean(Box.class);
+//		System.out.println(box.getCar().getModel());
+//		context.close();
 	}
 
 }
